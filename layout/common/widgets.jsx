@@ -22,6 +22,9 @@ function formatWidgets(widgets) {
 }
 
 function hasColumn(widgets, position, config, page) {
+    if (position === 'left' && page.layout === 'post') {
+        return false;
+    }
     const showToc = (config.toc === true) && ['page', 'post'].includes(page.layout);
     if (Array.isArray(widgets)) {
         return typeof widgets.find(widget => {
@@ -70,6 +73,9 @@ class Widgets extends Component {
         const { site, config, helper, page, position } = this.props;
         const widgets = formatWidgets(config.widgets)[position] || [];
         const columnCount = getColumnCount(config.widgets, config, page);
+        if (position === 'left' && page.layout === 'post') {
+            return null;
+        }
 
         if (!widgets.length) {
             return null;
