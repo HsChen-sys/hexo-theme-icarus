@@ -16,3 +16,68 @@
     .media + .media
         border: none
         margin-top: 0
+
+
+// middle-box.styl
+
+// —— 通用样式 —— 
+.middle-box
+  border-radius 4px
+  overflow hidden
+  margin 1em 0
+  box-shadow 0 1px 3px rgba(0,0,0,0.1)
+  font-family sans-serif
+
+  // 头部
+  &-header
+    display flex
+    align-items center
+    padding .5em 1em
+    font-size .9em
+    font-weight bold
+
+    .middle-box-icon
+      font-size 1.2em
+      margin-right .5em
+      line-height 1
+
+    .middle-box-title
+      flex 1
+
+  // 正文
+  &-body
+    padding 1em
+    line-height 1.5
+    font-size .95em
+    background #f5f5f5
+    color #333
+
+    code
+      background #e8f1fb
+      color #3178c6
+      padding 0.15em 0.3em
+      border-radius 3px
+      font-family Consolas, Menlo, Monaco, monospace
+      font-size .9em
+
+// —— 不同类型的配色 —— 
+.middle-box.note
+  &-header
+    background #70c1ff    // NOTE 的蓝色
+    color #fff
+  &-body
+    background #e7f5ff
+
+.middle-box.tip
+  &-header
+    background #ffeb3b    // TIPS 的黄色
+    color #333
+  &-body
+    background #fffde7
+
+.middle-box.warning
+  &-header
+    background #da5532    // WARNING 的红色
+    color #fff
+  &-body
+    background #fdeaeb
